@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+import Card from '../components/Card.astro';
+import Dialog from '../components/Dialog.astro';
 
 ---
 
@@ -8,9 +11,32 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Astro CSS HTML World</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>Astro CSS HTML World</h1>
+		<div class="grid gap-8">
+			<section>
+				<h2 class="mb-4">Cards</h2>
+				<div class="grid place-content-center lg:flex gap-4">
+					<div class="flex flex-col items-center gap-2">
+						<p>No Border</p>
+						<Card />
+					</div>
+					<div class="flex flex-col items-center gap-2">
+						<p>Mono</p>
+						<Card mono/>
+					</div>
+					<div class="flex flex-col items-center gap-2">
+						<p>Rainbow</p>
+						<Card rainbow/>
+					</div>
+			</section>
+			<section>
+				<h2 class="mb-4">Dialog</h2>
+				<Dialog />
+			</section>
+		</div>
+		</div>
 	</body>
 </html>

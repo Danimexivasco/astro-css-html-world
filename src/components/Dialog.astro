@@ -1,0 +1,54 @@
+---
+import { XIcon } from '@lucide/astro';
+---
+
+
+<button id="show-modal" class="bg-indigo-600 p-2 rounded text-white hover:bg-indigo-800 cursor-pointer">Show Modal</button>
+<dialog id="dialog-test">
+  <div class="wrapper">
+    <div class="flex justify-between">
+      <h2>Dialog Title</h2>
+      <button id="close-btn" class="cursor-pointer">
+        <XIcon />
+      </button>
+    </div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum corporis, impedit inventore non ipsam illum blanditiis enim ullam, recusandae architecto magni porro aperiam accusamus! Ipsam alias eveniet maiores odit dolorum.
+    Ex eaque praesentium iure, qui molestias quibusdam animi? At aperiam modi cumque quos, voluptatibus rerum. Eligendi ullam, atque aut ratione id laboriosam totam impedit consectetur ea deleniti. Eaque, autem culpa.
+    Ipsa molestiae accusamus, reprehenderit enim corrupti aspernatur quidem animi assumenda itaque similique maiores et perferendis repellat laudantium, ipsum recusandae natus delectus hic velit consequuntur nam. Tempore optio soluta odio rerum?</p>
+    <button class="bg-indigo-600 p-2 rounded text-white hover:bg-indigo-800 cursor-pointer mx-auto">Nothing to do here</button>
+  </div>
+</dialog>
+
+<script>
+  const button = document.getElementById('show-modal');
+  const dialog = document.getElementById('dialog-test') as HTMLDialogElement;
+  const wrapper = document.querySelector('.wrapper');
+  const closeBtn = document.getElementById('close-btn');
+
+  const showDialog = (show: boolean) => show ? dialog.showModal() : dialog.close();
+
+  button?.addEventListener('click', () => showDialog(true));
+  dialog?.addEventListener('click', () => showDialog(false));
+  closeBtn?.addEventListener('click', () => showDialog(false));
+  wrapper?.addEventListener('click', (e) => e.stopPropagation());
+</script>
+
+  
+<style>
+  dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    border: 1px solid #ccc;
+    padding: 0;
+    border-radius: 10px;
+    width: clamp(300px, 100%, 500px);
+    &::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .wrapper {
+      padding: 1rem;
+    }
+  }
+</style>
