@@ -1,0 +1,79 @@
+<div class="slider select-none">
+  <div class="slide">
+    <h2>Slide Title</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati aliquam iste dolor </p>
+  </div>
+  <div class="slide">
+    <h2>Slide Title</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati aliquam iste dolor </p>
+  </div>
+  <div class="slide">
+    <h2>Slide Title</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati aliquam iste dolor </p>
+  </div>
+  <div class="slide">
+    <h2>Slide Title</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati aliquam iste dolor </p>
+  </div>
+</div>
+
+<style>
+  .slider {
+    display: flex;
+    gap: 20px;
+    width: 300px;
+    overflow-x: scroll;
+    color: black;
+    scroll-snap-type: x mandatory;
+    border-radius: 14px;
+    scroll-behavior: smooth; 
+  }
+
+  .slide {
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    flex-shrink: 0;
+    width: 300px;
+    background-color: white;
+    border-radius: 14px;
+    text-align: center;
+  }
+</style>
+
+<script>
+  const slider = document.querySelector('.slider');
+
+  // Smooth scroll on mouse wheel (desktop)
+  slider.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    slider.scrollLeft += e.deltaY;
+  });
+
+  // Drag-to-scroll on desktop
+  let isDragging = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isDragging = false;
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2; // Adjust speed of dragging
+    slider.scrollLeft = scrollLeft - walk;
+  });
+</script>
