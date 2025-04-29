@@ -1,0 +1,33 @@
+<p class="word-carousel">I love </p>
+
+
+<style>
+ .word-carousel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  &:after {
+    content: "Rocío";
+    font-size: 2rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    font-style: italic;
+    color: transparent;
+    color: black;
+    animation: word-carousel 3s infinite;
+  }
+ }
+
+ @keyframes word-carousel {
+  0% {
+    content: "Rosiiiito";
+  }
+  50% {
+    content: "Mi prinsesita élfica";
+  }
+  100% {
+    content: "Rosiiiito";
+  }
+ }
+</style>
