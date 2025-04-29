@@ -3,8 +3,15 @@ import '../styles/global.css';
 import Card from '../components/Card.astro';
 import Dialog from '../components/Dialog.astro';
 import Button from '../components/Button.astro';
-import Carousel from '../components/Carousel.astro';
-
+import Accordion from '../components/Accordion.astro';
+import Slider from '../components/Slider.astro';
+import SearchInput from '../components/SearchInput.astro';
+import LoadingAnimation1 from '../components/LoadingAnimation1.astro';
+import LoadingAnimation2 from '../components/LoadingAnimation2.astro';
+import LoadingAnimation3 from '../components/LoadingAnimation3.astro';
+import ArcheryTarget from '../components/ArcheryTarget.astro';
+import WordCarousel from '../components/WordCarousel.astro';
+import Flag from '../components/Flag.astro';
 ---
 
 <html lang="en">
@@ -40,24 +47,89 @@ import Carousel from '../components/Carousel.astro';
 			</section>
 			<section>
 				<h2 class="mb-4">Button</h2>
-				<Button />
-				<Button bordered />
+				<div class="flex gap-4">
+					<Button />
+					<Button bordered />
+					<Button hoverable />
+				</div>
 			</section>
 			<section>
-				<h2 class="mb-4">Details Regular</h2>
-				<Carousel items={[1,2,3]} custom/>
+				<h2 class="mb-4">Accordion</h2>
+				<div class="max-w-xl mx-auto">
+					<Accordion items={[1,2,3]} custom/>
+				</div>
 			</section>
 			<section>
-				<h2 class="mb-4">Details Rounded</h2>
-				<Carousel items={["a","b","c"]} rounded custom/>
+				<h2 class="mb-4">Accordion Rounded</h2>
+				<div class="max-w-xl mx-auto">
+					<Accordion items={["a","b","c"]} rounded custom/>
+				</div>
 			</section>
 			<section>
 				<h2 class="mb-4">Details Pure HTML</h2>
-				<Carousel items={["a","b","c"]} rounded/>
+				<Accordion items={["a","b","c"]} rounded/>
 			</section>
+			<section class="mb-8">
+				<h2 class="mb-4">Slider pure CSS + Js (for destkop swipe)</h2>
+				<Slider />
+			</section>
+			<div class="mt-8 mb-8">
+				<h1>FreeCodeCamp examples</h1>
+				<div class="grid gap-8">
+					<section>
+						<h2 class="mb-4">Expandable search input</h2>
+						<SearchInput />
+					</section>
+					<section>
+						<h2 class="mb-4">Loading Animations</h2>
+						<div class="flex gap-4">
+							<LoadingAnimation1 />
+							<LoadingAnimation2/>
+							<LoadingAnimation3/>
+						</div>
+					</section>
+					<section>
+						<h2 class="mb-4">Archery Target</h2>
+						<ArcheryTarget />
+					</section>
+					<section>
+						<h2 class="mb-4">Word Carousel</h2>
+						<WordCarousel />
+					</section>
+					<section>
+						<h2 class="mb-4">World Flags</h2>
+						<div class="flex gap-4 flex-wrap">
+							<Flag country="france" />
+							<Flag country="germany" />
+							<Flag country="madagascar" />
+							<Flag country="switzerland" />
+						</div>
+					</section>
+				</div>
+			</div>
 		</div>
 		</div>
 	</body>
 </html>
+
+<style>
+	h1 {
+		font-size: clamp(3rem, 5vw + 1rem, 4rem);
+		background: linear-gradient(to right, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
+		background-clip: text;
+		color: transparent;
+		background-size: 300% auto;
+		animation: wave 3s linear infinite alternate;
+
+	}
+	@keyframes wave {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 100% center;
+    }
+  }
+</style>
 
 

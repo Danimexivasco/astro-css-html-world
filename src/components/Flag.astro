@@ -1,0 +1,99 @@
+---
+type FlagCountries = "france" | "germany" | "madagascar" | "switzerland"
+const {country}: {country?: FlagCountries} = Astro.props;
+--- 
+
+{country === "france" && (
+  <div class="flag france">
+    <div class="line" style="--color: blue"></div>
+    <div class="line" style="--color: white"></div>
+    <div class="line" style="--color: red"></div>
+  </div>
+)} 
+{country === "germany" && (
+  <div class="flag germany">
+    <div class="line" style="--color: black"></div>
+    <div class="line" style="--color: red"></div>
+    <div class="line" style="--color: orange"></div>
+  </div>
+)} 
+{country === "madagascar" && (
+  <div class="flag madagascar">
+    <div class="line expand" style="--color: white"></div>
+    <div class="grid expand">
+      <div class="line" style="--color: red"></div>
+      <div class="line" style="--color: green"></div>
+    </div>
+  </div>
+)} 
+{country === "switzerland" && (
+  <div class="flag switzerland">
+    <div class="cross-container">
+      <div class="cross-angle"></div>
+      <div class="cross-angle"></div>
+      <div class="cross-angle"></div>
+      <div class="cross-angle"></div>
+    </div>
+  </div>
+)} 
+
+<style>
+  .flag {
+    width: clamp(300px, 100%, 500px);
+    aspect-ratio: 3/2;
+    .line {
+      width: 100%;
+      background-color: var(--color);
+    }
+    &.france {
+      display: flex;
+    }
+    &.germany {
+      display: grid;
+    }
+    &.madagascar {
+      display: grid;
+      .expand {
+        grid-row: span 2;
+      }
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: repeat(2, 1fr);
+    }
+    &.switzerland {
+      background-color: red;
+      position: relative;
+      .cross-container {
+        background-color: white;
+        position: absolute;
+        aspect-ratio: 1;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 40%;
+        z-index: 1;
+        .cross-angle {
+          position: absolute;
+          aspect-ratio: 1;
+          background-color: red;
+          width: 33%;
+          &:nth-of-type(1) {
+            top:0;
+            left: 0;
+          }
+          &:nth-of-type(2) {
+            top:0;
+            right: 0;
+          }
+          &:nth-of-type(3) {
+            bottom:0;
+            right: 0;
+          }
+          &:nth-of-type(4) {
+            bottom:0;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+</style>
