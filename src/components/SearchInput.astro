@@ -1,0 +1,23 @@
+
+<div class="wrapper">
+  <label for="search">Search</label>
+  <input type="search" id="search" placeholder="Search something...">
+</div>
+
+<style>
+  .wrapper {
+    display: grid;
+    gap: 1rem;
+  }
+  input {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    width: clamp(300px, 20%, 500px);
+    transition: all 150ms ease-in-out;
+
+    &:focus {
+      width: 100%;
+    }
+  }
+</style>
