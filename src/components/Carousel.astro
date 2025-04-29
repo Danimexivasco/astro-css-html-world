@@ -1,0 +1,84 @@
+---
+import { ChevronDown } from '@lucide/astro';
+import clsx from 'clsx';
+const {items, rounded, custom = false} = Astro.props;
+---
+{custom ? (
+  <ul class={clsx("grid", rounded && "rounded-xl overflow-hidden")}>
+    {items && items.map((item: any) => (
+      <div class="item min-h-16">
+        <label for={`summary${item}`} class="summary flex items-center gap-2 h-16 w-full"><ChevronDown class="icon w-8 h-8" /> Click to expand {item}</label>
+        <input type="checkbox" id={`summary${item}`} hidden />
+        <p class="content inset-shadow-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus ut beatae eum, doloremque nulla incidunt ipsam recusandae sunt tenetur! Earum cumque, deserunt ipsum laboriosam consequatur molestiae deleniti saepe ab suscipit!</p>
+      </div>
+    ))}
+  </ul>
+) : (
+   <ul class={clsx("grid", rounded && "rounded-xl overflow-hidden")}>
+    {items && items.map((item: any) => (
+    <details>
+        <summary>Click to expand</summary>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus ut beatae eum, doloremque nulla incidunt ipsam recusandae sunt tenetur! Earum cumque, deserunt ipsum laboriosam consequatur molestiae deleniti saepe ab suscipit!</p>
+      </details>
+    ))}
+   </ul>
+)}
+
+
+
+
+  <style>
+    details {
+      background-color: antiquewhite;
+      color: black;
+      font-size: 1.5rem;
+      cursor: pointer;
+      summary {
+        &::marker {
+          content: "🚀";
+        }
+      }
+    }
+
+    .item {
+      background-color: antiquewhite;
+      color: black;
+      font-size: 1.5rem;
+      transition: 150ms ease;
+      display: grid;
+      grid-template-rows: 64px 0fr;
+      width: 100%;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #000;
+      }
+      
+      &:has(input:checked) {
+        grid-template-rows: 64px 1fr;
+        .icon {
+          transform: rotate(-180deg);
+        }
+        .content {
+          padding: 1rem;
+          visibility: visible;
+        }
+      }
+
+      label {
+        background-color: antiquewhite;
+        padding: 1rem;
+        cursor: pointer;
+        &:not(:last-child) {
+        border-bottom: 1px solid #000;
+      }
+      }
+  
+      .icon {
+        transition: 150ms ease;
+      }
+      .content {
+        overflow: hidden;
+        visibility: hidden;
+      }
+    }
+  </style>

@@ -6,7 +6,7 @@ import { XIcon } from '@lucide/astro';
 <button id="show-modal" class="bg-indigo-600 p-2 rounded text-white hover:bg-indigo-800 cursor-pointer">Show Modal</button>
 <dialog id="dialog-test">
   <div class="wrapper">
-    <div class="flex justify-between">
+    <div class="flex justify-between mb-6">
       <h2>Dialog Title</h2>
       <button id="close-btn" class="cursor-pointer">
         <XIcon />
@@ -49,6 +49,10 @@ import { XIcon } from '@lucide/astro';
     }
     .wrapper {
       padding: 1rem;
+    }
+    button:not(#close-btn) {
+      margin-top: 1rem;
+      width: 100%;
     }
   }
 </style>

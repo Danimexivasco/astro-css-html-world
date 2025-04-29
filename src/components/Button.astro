@@ -1,0 +1,31 @@
+---
+import clsx from "clsx";
+
+const {bordered} = Astro.props;
+---
+
+<button class={clsx("bg-indigo-600 p-2 text-white hover:bg-indigo-800 cursor-pointer", {bordered})}>This is button!</button>
+
+<style>
+  button {
+    position: relative;
+    border-radius: 10px;
+    &.bordered {
+      &::after, &::before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        background-image: conic-gradient(from var(--angle), transparent 80%, orange);
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        border-radius: 10px;
+        padding: 2px;
+        z-index: -1;
+        animation: 3s spin linear infinite;
+        box-sizing: content-box;
+      }
+    }
+  }
+</style>

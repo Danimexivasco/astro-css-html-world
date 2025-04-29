@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import Card from '../components/Card.astro';
 import Dialog from '../components/Dialog.astro';
+import Button from '../components/Button.astro';
+import Carousel from '../components/Carousel.astro';
 
 ---
 
@@ -36,7 +38,26 @@ import Dialog from '../components/Dialog.astro';
 				<h2 class="mb-4">Dialog</h2>
 				<Dialog />
 			</section>
+			<section>
+				<h2 class="mb-4">Button</h2>
+				<Button />
+				<Button bordered />
+			</section>
+			<section>
+				<h2 class="mb-4">Details Regular</h2>
+				<Carousel items={[1,2,3]} custom/>
+			</section>
+			<section>
+				<h2 class="mb-4">Details Rounded</h2>
+				<Carousel items={["a","b","c"]} rounded custom/>
+			</section>
+			<section>
+				<h2 class="mb-4">Details Pure HTML</h2>
+				<Carousel items={["a","b","c"]} rounded/>
+			</section>
 		</div>
 		</div>
 	</body>
 </html>
+
+
