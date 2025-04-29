@@ -1,0 +1,36 @@
+<div class="loader">
+  <div class="circle"style="--i: 0"></div>
+  <div class="circle"style="--i: 1"></div>
+  <div class="circle"style="--i: 2"></div>
+</div>
+
+<style>
+  .loader {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .circle {
+    --delay-step: 0.2s;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: pulse 1s ease-in-out alternate infinite;
+    animation-delay: calc(var(--i) * var(--delay-step));
+
+  }
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+      background-color: white;
+    }
+    to {
+      transform: scale(2);
+      background-color: orange;
+    }
+  }
+</style>

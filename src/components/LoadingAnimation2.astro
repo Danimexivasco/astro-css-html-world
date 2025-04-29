@@ -1,0 +1,35 @@
+<div class="loader">
+  <div class="square"style="--i: 0"></div>
+  <div class="square"style="--i: 1"></div>
+  <div class="square"style="--i: 2"></div>
+</div>
+
+<style>
+  .loader {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .square {
+    --delay-step: 0.2s;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    animation: scale 1s ease-in-out alternate infinite;
+    animation-delay: calc(var(--i) * var(--delay-step));
+
+  }
+
+  @keyframes scale {
+    from {
+      transform: scale(1) rotate(0deg);
+      background-color: white;
+    }
+    to {
+      transform: scale(2) rotate(360deg);
+      background-color: orange;
+    }
+  }
+</style>
