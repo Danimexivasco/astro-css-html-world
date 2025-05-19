@@ -1,47 +1,36 @@
-# Astro Starter Kit: Minimal
+# 🪐 Astro CSS HTML World
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+A lightweight, component-friendly project built using **[Astro](https://astro.build/)** to explore classic HTML and CSS patterns in a modern frontend stack. Perfect for experimenting with semantic HTML, layout structures, and styling with minimal JavaScript.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## 🚀 Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- ⚡️ Built with [Astro](https://astro.build/) — fast static site generation
+- 🎨 Semantic HTML & CSS-first design
+- 📦 Modular file structure using components
+- 🔍 Clean and minimal with no unnecessary JS overhead
 
-## 🚀 Project Structure
+##  🧱 Built With
 
-Inside of your Astro project, you'll see the following folders and files:
+- Astro
+- HTML5 & modern CSS
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 💻 Installation
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. **Clone the repository**:
 
-Any static assets, like images, can be placed in the `public/` directory.
+   ```bash
+   git clone https://github.com/Danimexivasco/react-native-metacritic-app.git
+   ```
 
-## 🧞 Commands
+2. **Install dependencies**:
 
-All commands are run from the root of the project, from a terminal:
+   ```bash
+   pnpm install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+3. **Start the development server**:
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+   ```bash
+   pnpm dev
+   ```
